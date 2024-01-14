@@ -27,6 +27,16 @@ const Experience = ({ experiences }) => {
                 <Chip label={detail} style={{ margin: '4px', backgroundColor: 'rgba(255, 107, 107, 0.6)', fontSize: '0.6rem' }}/>
               ))}
             </Typography>
+            {experience.links && (
+            <Typography variant="caption" component="p">
+              {Object.entries(experience.links).map(([name, url], linkIndex) => (
+                [<span key={linkIndex}>{linkIndex > 0 && ' | '}</span>,
+                <a key={`${linkIndex}-${name}`} href={url} target="_blank" rel="noopener noreferrer">
+                  {name}
+                </a>]
+              ))}
+            </Typography>
+            )}
         </TimelineContent>
       </TimelineItem>
     ));
