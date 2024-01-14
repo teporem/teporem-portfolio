@@ -2,11 +2,22 @@ import logo from './logo.svg';
 import './App.css';
 import Experience from './Experience.js';
 import * as React from 'react';
-import { Grid, Typography, Tabs, Tab, Box, Avatar, Link, Button } from '@mui/material';
+import { Grid, Typography, Tabs, Tab, Box, Avatar, Link, Button, Popover } from '@mui/material';
 import { VolumeUp as VolumeUpIcon, LinkedIn as LinkedInIcon, GitHub as GitHubIcon } from '@mui/icons-material';
 
 function App() {
   const [tabValue, setTabValue] = React.useState(0);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handlePopoverOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
 
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
@@ -23,7 +34,16 @@ function App() {
         {...other}
       >
         {value === index && (
-          <Box sx={{ p: 3 }} style={{ overflowY: 'auto', maxHeight: 'calc(100vh - 100px)' }}>
+          <Box
+          sx={{
+            p: 3,
+            overflowY: 'auto',
+            maxHeight: 'calc(100vh - 100px)',
+            '@media (max-width: 600px)': {
+              maxHeight: 'calc(50vh - 100px)',
+            },
+          }}
+        >
             <Typography>{children}</Typography>
           </Box>
         )}
@@ -61,7 +81,7 @@ function App() {
         
       </header>
       <div className="content">
-      <Grid container spacing={2}>
+      <Grid container spacing={2} style={{ height: '100%' }}>
         <Grid item xs={12} sm={5} >
           <Grid container spacing={2} alignItems="center" style={{padding:"10px"}}>
             <Grid item xs={4} >
@@ -79,46 +99,77 @@ function App() {
               <Grid item xs={8} >
                 <Typography variant="h3" component="h1" style={{padding:"10px"}} sx={{ textAlign: 'left' }}>Hasumi Tanemori</Typography>
               </Grid>
-            
           </Grid>
-          <Typography variant="body1" style={{padding:"10px"}}>
-            Hi, I’m 
-            <Button
-              size="small"
-              endIcon={<VolumeUpIcon />}
-              onClick={() => {
-                const audio = new Audio('/hasumi.mp3');
-                audio.play();
+          <Grid container spacing={2}>
+          <Grid item xs={6} sm={12} >
+            <Typography variant="body1" style={{padding:"10px"}}>
+              Hi, I’m 
+              <Button
+                size="small"
+                endIcon={<VolumeUpIcon />}
+                onClick={() => {
+                  const audio = new Audio('/hasumi.mp3');
+                  audio.play();
+                }}
+                aria-owns={open ? 'mouse-over-popover' : undefined}
+                aria-haspopup="true"
+                onMouseEnter={handlePopoverOpen}
+                onMouseLeave={handlePopoverClose}
+              > Hasumi
+              </Button>
+              <Popover
+                id="mouse-over-popover"
+                sx={{
+                  pointerEvents: 'none',
+                }}
+                open={open}
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                onClose={handlePopoverClose}
+                disableRestoreFocus
+              >
+                <Typography variant="caption" style={{padding:"2px 5px"}}>Hah-su-mee</Typography>
+              </Popover>
+              —a software developer <br /> with a passion for user-centric design.
+            </Typography>
+          </Grid>
+          <Grid item xs={6} sm={12} >
+            <Tabs
+              orientation="vertical"
+              class="left-line"
+              value={tabValue}
+              onChange={handleChange}
+              aria-label="vertical tab menu"
+              textColor="secondary"
+              TabIndicatorProps={{
+                style: { display: 'none' }
               }}
-            > Hasumi
-            </Button>
-            —a software developer <br /> with a passion for user-centric design.
-          </Typography>
-          <Tabs
-            orientation="vertical"
-            class="left-line"
-            value={tabValue}
-            onChange={handleChange}
-            aria-label="vertical tab menu"
-            textColor="secondary"
-            TabIndicatorProps={{
-              style: { display: 'none' }
-            }}
-          >
-            <Tab label="Experience" sx={{fontSize: '1.2rem',fontWeight: 'bold',}} {...a11yProps(0)} />
-            <Tab label="Projects" sx={{fontSize: '1.2rem',fontWeight: 'bold',}} {...a11yProps(1)} />
-            <Tab label="Resume" sx={{fontSize: '1.2rem',fontWeight: 'bold',}} {...a11yProps(2)} />
-          </Tabs>
+            >
+              <Tab label="Experience" sx={{fontSize: '1.2rem',fontWeight: 'bold',}} {...a11yProps(0)} />
+              <Tab label="Projects" sx={{fontSize: '1.2rem',fontWeight: 'bold',}} {...a11yProps(1)} />
+              <Tab label="Resume" sx={{fontSize: '1.2rem',fontWeight: 'bold',}} {...a11yProps(2)} />
+            </Tabs>            
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={7}>
+          
+
+        </Grid>
+        <Grid item xs={12} sm={7} >
         <TabPanel value={tabValue} index={0}>
-          <Typography variant="h5" component="h2" align="left" color="white" sx={{ backgroundColor: '#004870', padding: '10px 20px' }}>
+          <Typography variant="h5" component="h2" align="left" color="white" sx={{ backgroundColor: '#004870', padding: '5px 20px' }}>
             EXPERIENCE
           </Typography>
           <Experience experiences={work_experiences} />
         </TabPanel>
         <TabPanel value={tabValue} index={1}>
-          <Typography variant="h5" component="h2" align="left" color="white" sx={{ backgroundColor: '#004870', padding: '10px 20px' }}>
+          <Typography variant="h5" component="h2" align="left" color="white" sx={{ backgroundColor: '#004870', padding: '5px 20px' }}>
             PROJECTS
           </Typography>
           <Experience experiences={project_experiences} />
@@ -143,8 +194,8 @@ function App() {
           Contact: <Link href="mailto:hasumi@tanemori.org" color="inherit">hasumi@tanemori.org</Link> {' '}
         </Typography>
         <div className="icons">
-          <Link href="https://www.linkedin.com/in/hasumi-tanemori/" color="inherit"><LinkedInIcon /></Link> {' '}
-          <Link href="https://github.com/teporem" color="inherit"><GitHubIcon /></Link> 
+          <Link href="https://www.linkedin.com/in/hasumi-tanemori/" target="_blank" rel="noopener noreferrer" color="inherit"><LinkedInIcon /></Link> {' '}
+          <Link href="https://github.com/teporem" target="_blank" rel="noopener noreferrer" color="inherit"><GitHubIcon /></Link> 
         </div>
       </footer>
     </div>
