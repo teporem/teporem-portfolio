@@ -16,7 +16,7 @@ const Experience = ({ experiences }) => {
           {index < experiences.length - 1 && <TimelineConnector />}
         </TimelineSeparator>
         <TimelineContent>
-            <Typography variant="subtitle1">
+            <Typography  component="h3" sx={{fontSize: '1.1rem',fontWeight: '500',}}>
               {experience.title}
             </Typography>
             <Typography variant="body2">

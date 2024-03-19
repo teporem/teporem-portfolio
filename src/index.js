@@ -8,7 +8,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
   typography: {
     fontFamily: [
-      'Verdana', 
+      'Source Sans Pro',
       'Roboto',
       'sans-serif',
     ].join(','),
