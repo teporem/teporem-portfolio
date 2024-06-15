@@ -62,21 +62,22 @@ function App() {
     };
   }
   const work_experiences = [
-    { date: 'Sept 2023 — Current', title: 'Course Assistant for Web Programming I', subtitle: 'Stevens Institute of Technology', details: ['JavaScript', 'MongoDB', 'Node.js', 'Express.js', 'HTML', 'CSS'] },
-    { date: 'May — July 2023', title: 'Software Engineering Intern', subtitle: 'Vibrnz', details: ['JavaScript', 'PostgreSQL', 'Ruby on Rails', 'HTML', 'CSS'] },
-    { date: 'Jan — May 2023', title: 'Course Assistant for Discrete Structures', subtitle: 'Stevens Institute of Technology', details: ['Scheme', 'Racket'] },
-    { date: 'Sept — Dec 2022', title: 'Software Developer Intern', subtitle: 'Thingee Corporation', details: ['Ruby on Rails', 'JavaScript', 'HTML', 'CSS', 'Figma'] },
-    { date: 'Jan — May 2022', title: 'Software Developer Intern', subtitle: 'Thingee Corporation', details: ['Ruby on Rails', 'JavaScript', 'HTML', 'CSS', 'Figma'] },
-    { date: 'May — Aug 2021', title: 'Quality Assurance Engineer Intern', subtitle: 'Numerix LLC', details: ['Java', 'Python', 'Selenium', 'Jira'] },
+    { date: 'Mar 2024 — Current', title: 'Software Engineer', subtitle: 'Vibrnz LLC', details: ['Ruby on Rails', 'JavaScript', 'PostgreSQL', 'HTML', 'CSS'], about: "As a part-time Software Engineer, remotely collaborated with developers to implement new features and enhance functionalities to improve the overall user experience." },
+    { date: 'Sept 2023 — May 2024', title: 'Course Assistant for Web Programming I', subtitle: 'Stevens Institute of Technology', details: ['JavaScript', 'MongoDB', 'Node.js', 'Express.js', 'HTML', 'CSS'], about: "Reinforced students' understanding of web development concepts through weekly office hours, online support, and grading of lab assignments." },
+    { date: 'May — July 2023', title: 'Software Engineering Intern', subtitle: 'Vibrnz LLC', details: ['JavaScript', 'PostgreSQL', 'Ruby on Rails', 'HTML', 'CSS'], about: "During this remote internship, optimized user experience for web applications by implementing new features and refining existing components." },
+    { date: 'Jan — May 2023', title: 'Course Assistant for Discrete Structures', subtitle: 'Stevens Institute of Technology', details: ['Scheme', 'Racket'], about: "Conducted weekly lab sessions, supported students with course content and functional programming, and assisted in assignments/exams grading" },
+    { date: 'Sept — Dec 2022', title: 'Software Developer Intern', subtitle: 'Thingee Corporation', details: ['Ruby on Rails', 'JavaScript', 'HTML', 'CSS', 'Figma'], about: "Implemented new features and improvements to different components of web applications and wrote unit tests and integration tests." },
+    { date: 'Jan — May 2022', title: 'Software Developer Intern', subtitle: 'Thingee Corporation', details: ['Ruby on Rails', 'JavaScript', 'HTML', 'CSS', 'Figma'], about: "Resolved issues in web applications including bugs and accessibility flaws." },
+    { date: 'May — Aug 2021', title: 'Quality Assurance Engineer Intern', subtitle: 'Numerix LLC', details: ['Java', 'Python', 'Selenium', 'Jira'], about: "Developed automated quality assurance tests and conducted manual tests." },
   ];
 
   const project_experiences = [
-    { date: 'Sept 2023 — Current', title: 'Haptic Hero', subtitle: 'Interdisciplinary Senior Design Project', details: ['React', 'Node.js', 'Express.js', 'Python', 'Raspberry Pi', 'Figma'], links: {"Github": "https://github.com/teporem/HapticHero", "More Info": "https://sites.google.com/stevens.edu/haptichero"} },
-    { date: 'Jan 2023', title: 'Portfolio', subtitle: 'Personal Website', details: ['JavaScript', 'React', 'Figma', 'HTML', 'CSS'], links: {"Github": "https://github.com/teporem/teporem.github.io", "View": ""} },
-    { date: 'Dec 2023', title: 'Creative Pursuits', subtitle: 'Interactive Data Visualization', details: ['JavaScript', 'D3.js', 'Chart.js', 'jQuery', 'Adobe Illustrator'], links: {"Github": "https://github.com/teporem/CreativePursuits", "View": "https://teporem.github.io/CreativePursuits/"} },
-    { date: 'Mar — May 2023', title: 'Campus Buddy', subtitle: 'Task Management Website', details: ['MongoDB', 'Redis', 'React', 'ImageMagick', 'Docker'], links: {"Github": "https://github.com/nromboug/CampusBuddy"} },
-    { date: 'Mar — Apr 2023', title: 'Canine Caboodle', subtitle: 'Dog Collection App', details: ['Java', 'Android Studio'], links: {"Github": "https://github.com/farihaxrahman/CanineCaboodle"} },
-    { date: 'July — Aug 2022', title: 'Small Biz', subtitle: 'Small Business Connection Website', details: ['MongoDB', 'Node.js', 'Express.js', 'HTML', 'CSS'], links: {"Github": "https://github.com/NoahValente/CS-546-Final-Project"} },
+    { date: 'Sept 2023 — May 2024', title: 'Haptic Hero', subtitle: 'Interdisciplinary Senior Design Project', details: ['AWS', 'React', 'Node.js', 'Express.js', 'Python', 'Raspberry Pi', 'Figma'], links: {"Github": "https://github.com/teporem/HapticHero", "More Info": "https://sites.google.com/stevens.edu/haptichero", "View": "https://teporem.github.io/HapticHero/"}, about: "Interdisciplinary project between Computer Science and Mechanical Engineering students to design and develop an accessible music-based rhythm game for individuals with visual impairments." },
+    { date: 'Jan 2023', title: 'Portfolio', subtitle: 'Personal Website', details: ['JavaScript', 'React', 'Figma', 'HTML', 'CSS'], links: {"Github": "https://github.com/teporem/teporem.github.io", "View": ""}, about: "A simple portfolio site to compile work and project experiences." },
+    { date: 'Dec 2023', title: 'Creative Pursuits', subtitle: 'Interactive Data Visualization', details: ['JavaScript', 'D3.js', 'Chart.js', 'jQuery', 'Adobe Illustrator'], links: {"Github": "https://github.com/teporem/CreativePursuits", "View": "https://teporem.github.io/CreativePursuits/"}, about: "A web-based data visualization project showcasing the statistics of Americans involved in creative hobbies and careers." },
+    { date: 'Mar — May 2023', title: 'Campus Buddy', subtitle: 'Task Management Website', details: ['MongoDB', 'Redis', 'React', 'ImageMagick', 'Docker'], links: {"Github": "https://github.com/nromboug/CampusBuddy"}, about: "A task management site to allow students to keep track of goals, create to-dos, and schedule study sessions." },
+    { date: 'Mar — Apr 2023', title: 'Canine Caboodle', subtitle: 'Dog Collection App', details: ['Java', 'Android Studio'], links: {"Github": "https://github.com/farihaxrahman/CanineCaboodle"}, about: "A prototype for a mobile game about collecting dog breeds." },
+    { date: 'July — Aug 2022', title: 'Small Biz', subtitle: 'Small Business Connection Website', details: ['MongoDB', 'Node.js', 'Express.js', 'HTML', 'CSS'], links: {"Github": "https://github.com/NoahValente/CS-546-Final-Project"}, about: "Small business-focused social media platform to allow businesses to connect with other businesses and share posts with users." },
   ];
 
   return (
@@ -92,7 +93,7 @@ function App() {
             <Grid item xs={4} >
               <Avatar
                 alt="Hasumi Tanemori"
-                src="/profile.jpg" 
+                src="/profile2.jpg" 
                 sx={{
                   width: 100,
                   height: 100,
@@ -199,6 +200,15 @@ function App() {
             CONTACT
           </Typography>
           <List >
+
+            <Link href="mailto:hasumi@tanemori.org" color="inherit" underline="hover">
+                <ListItem>
+                <ListItemIcon>
+                    <EmailIcon />
+                </ListItemIcon>
+                <ListItemText primary="hasumi@tanemori.org"  />
+              </ListItem>
+            </Link>
             <Link href="https://www.linkedin.com/in/hasumi-tanemori/" target="_blank" rel="noopener noreferrer" color="inherit" underline="hover">
               <ListItem>
                 <ListItemIcon>
@@ -213,15 +223,6 @@ function App() {
                   <GitHubIcon />
               </ListItemIcon>
               <ListItemText primary="Github" />
-            </ListItem>
-            </Link>
-            
-            <Link href="mailto:hasumi@tanemori.org" color="inherit" underline="hover">
-              <ListItem>
-              <ListItemIcon>
-                  <EmailIcon />
-              </ListItemIcon>
-              <ListItemText primary="hasumi@tanemori.org"  />
             </ListItem>
             </Link>
             
