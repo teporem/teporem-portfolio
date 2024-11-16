@@ -2,6 +2,7 @@ import { Typography, Chip, Link} from '@mui/material';
 import { Info as InfoIcon, GitHub as GitHubIcon, Visibility as VisibilityIcon, Link as LinkIcon} from '@mui/icons-material';
 import * as React from 'react';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot, TimelineOppositeContent, timelineOppositeContentClasses } from '@mui/lab';
+import FileModal from './FileModal.js';
 
 const Experience = ({ experiences }) => {
   const createTimelineItems = () => {
@@ -37,14 +38,19 @@ const Experience = ({ experiences }) => {
             {experience.links && (
               <Typography variant="body2" component="p" sx={{ marginTop: '4px', fontSize: 'small'}}>
                 {Object.entries(experience.links).map(([name, url]) => (
-                  <Link href={url} target="_blank" rel="noopener noreferrer" color="inherit" underline="hover" style={{ display: 'inline-flex', alignItems: 'center', margin: '4px 8px 4px 0' }}>
-                    { name === "Github" ? <GitHubIcon /> :
-                      name === "More Info" ? <InfoIcon /> :
-                      name === "View" ? <VisibilityIcon /> : 
-                      <LinkIcon />
-                    }
-                    <span style={{ padding: '0 4px' }}>{name}</span>
-                  </Link>
+                  typeof url === 'string' ? (
+                    <Link href={url} target="_blank" rel="noopener noreferrer" color="inherit" underline="hover" style={{ display: 'inline-flex', alignItems: 'center', margin: '4px 8px 4px 0' }}>
+                      { name === "Github" ? <GitHubIcon /> :
+                        name === "More Info" ? <InfoIcon /> :
+                        name === "View" ? <VisibilityIcon /> : 
+                        <LinkIcon />
+                      }
+                      <span style={{ padding: '0 4px' }}>{name}</span>
+                    </Link>
+                  ) : (
+                    name === "View Files" ? <FileModal files={url}/> : ''
+                  )
+                  
                 ))}
               </Typography>
             )}

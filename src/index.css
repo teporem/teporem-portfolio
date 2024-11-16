@@ -15,7 +15,7 @@ body, #root {
   height: 100%;
 }
 
-.title {
+.title, .DialogTitle {
   font-family: 'Tauri', 'Verdana', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
